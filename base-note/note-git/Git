@@ -1,0 +1,46 @@
+1.测试
+    - 比较当前文件和暂存区文件差异
+        git diff fileName
+    - 比较暂存区和版本库差异
+        git diff --staged
+        git diff cached
+
+2.撤销内容
+    - 撤销修改的内容，已修改，但未添加到暂存区
+        git co -- fileName
+    - 撤销暂存区内容，已添加到暂存区，但未提交
+        git reset fileName
+
+3.覆盖最后一次提交
+    - 只修改提交说明
+        git ci -m "update_tips" --amend
+    - 修改文件后，再提交覆盖
+        git add update_file
+        git ci -m "update_tips" --amend
+
+4.按行查看提交历史
+    git log --pretty=oneline
+
+5.添加rm删除的文件到暂存区
+    git add -A | --all
+
+6.远程仓库
+    - 添加仓库
+        git remote add respoName gitUrl
+    - 重命名仓库
+        git remote rename oldName newName
+    - 删除仓库
+        git remote rm respoName
+     - 删除远程分支
+        git push respoName:branchName
+
+7.分支查看
+    - 查看已与当前分支合并过的分支
+        git br --merged
+    - 查看未与当前分支合并的分支
+        git br --no-merged
+
+8.rebase衍合
+    - 不要衍合已经推送到公共仓库的更新
+        在衍合时抛弃了一些现存的commit，创造一些类似但不同的新的commit。
+        若推送后，则其他合作者就不得不重新合并他们的工作。

@@ -1,0 +1,40 @@
+1.配置git信息
+    #配置用户信息
+        git config --global user.name "name"
+        git config --global user.email "email"
+    #为命令取别名(方便输入)
+        git config --global alias.co checkout
+        git config --global alias.ci commit
+        git config --global alias.st status
+        git config --global alias.br branch
+    #列举所有已配置信息
+        git config -l
+
+2.将一个项目初始化为git仓库
+    - cd <root目录>
+    - git init
+
+3.将初始化的git项目与远程项目绑定
+    - git remote add origin <url>
+        # origin：仓库名，一般使用origin
+
+4.查看文件状态
+    - git status
+        #文件颜色
+            - 红色，已修改，未添加到暂存区
+            - 绿色，已修改并添加到暂存区
+
+5.撤销已修改，未添加到暂存区的文件(git status 显示红色)
+    - git checkout -- fileName
+        #注意：'--'后面有空格，执行后会丢弃文件已修改的内容
+
+6.撤销已修改，并添加到暂存区的文件(git status 显示绿色)
+    - git reset -- fileName
+        #执行后文件变为已修改，未提交状态(git status 显示红色)
+
+7.本地提交后推送到远程仓库
+    - git fetch origin #抓取远程仓库最新的变化，只是抓取，并未与本地的合并
+    - git merge origin/dev #抓取变化后，将远程仓库的dev分支与本地分支合并
+    - git add .
+    - git commit -m ""
+    - git push origin dev #将本地最新的提交推送到远程仓库
