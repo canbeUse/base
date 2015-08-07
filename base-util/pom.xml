@@ -18,12 +18,6 @@
     </properties>
 
     <dependencies>
-        <!-- 继承父模块 -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-
         <!-- 本模块需要 -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
