@@ -5,7 +5,10 @@
   <groupId>base</groupId>
   <artifactId>base-root</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <modules>
+        <module>base-util</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>base-root</name>
   <url>http://maven.apache.org</url>
