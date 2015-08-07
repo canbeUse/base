@@ -1,0 +1,17 @@
+1.执行mybatis-generator之前先完成
+
+    (1)base-domain模块
+        entities：用于生成数据表相对应的实体类。
+    (2)base-data模块
+        data：用于保存生成的Mapper接口
+        mybatis-mappers：用于保存生成的Mapper.xml配置文件。
+    (3)mybatis-generator模块
+        a：配置generatorConfig.xml文件
+            ①：指定数据库驱动包jar - classPathEntry
+            ②：配置数据库连接信息 - jdbcConnection
+            ③：指定实体类生成的存放位置 - javaModelGenerator （注意：设置是否可以自动创建不存在的文件夹 - enableSubPackages）
+            ④：指定Mapper接口生成的存放位置 - javaClientGenerators
+            ⑤：指定生成的Mapper.xml配置文件生成的存放位置 - sqlMapGenerator
+        b：生成语句
+            java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml -overwrite
+            提示：生成完成，base-data模块添加base-domain和mybatis的依赖

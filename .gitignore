@@ -16,3 +16,5 @@
 *.ear
 
 *.log
+!driver
+!mybatis-generator-core-1.3.2.jar

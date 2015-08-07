@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 指定数据库的jdbc驱动jar包的位置 -->
+    <classPathEntry location="driver/mysql-connector-java-5.1.36.jar" />
+
+    <!--
+        1. sqljdbc4.jar
+            (1)需到微软官网先下载驱动包：
+                http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774
+            (2)再添加到maven仓库：
+                mvn install:install-file -Dfile=sqljdbc4.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0
+            (3)然后引用：
+                <dependency>
+                    <groupId>com.microsoft.sqlserver</groupId>
+                    <artifactId>sqljdbc4</artifactId>
+                    <version>4.0</version>
+                </dependency>
+
+        2. ojdbc14.jar
+            (1)需注册oracle账户
+                http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-10201-088211.html
+    -->
+
+    <context id="SaeMySQLTables" targetRuntime="MyBatis3">
+
+        <!-- 数据库连接信息 -->
+        <jdbcConnection  driverClass="com.mysql.jdbc.Driver"
+                         connectionURL="jdbc:mysql://rds0vlz2v236qklcz32ipublic.mysql.rds.aliyuncs.com:3306/aliyun_db_1"
+                         userId="aliyun_db_1_user"
+                         password="aliyun_db_1_pass">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- entities实体类生成的位置 -->
+        <javaModelGenerator targetPackage="base.domain.entities" targetProject="../base-domain/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- Mapper.xml生成的位置 -->
+        <sqlMapGenerator targetPackage="mybatis-mappers"  targetProject="../base-data/src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- Mapper.java生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="base.data"  targetProject="../base-data/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 配置需生成的表 -->
+        <table schema="" tableName="user"></table>
+    </context>
+</generatorConfiguration>

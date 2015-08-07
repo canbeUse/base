@@ -11,6 +11,7 @@
         <module>base-log</module>
         <module>base-domain</module>
         <module>base-data</module>
+        <module>mybatis-generator</module>
     </modules>
     <packaging>pom</packaging>
 
