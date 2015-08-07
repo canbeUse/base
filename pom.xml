@@ -9,6 +9,8 @@
         <module>base-util</module>
         <module>base-test</module>
         <module>base-log</module>
+        <module>base-domain</module>
+        <module>base-data</module>
     </modules>
     <packaging>pom</packaging>
 
