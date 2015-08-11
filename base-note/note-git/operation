@@ -1,0 +1,6 @@
+1.在dev分支上新建文件test，在test文件输入内容dev
+2.git co -b test
+3.在test分支修改test文件，增加内容test
+4.git ci -m "dev->test"
+5.git co dev
+6.发现文件test被删除了（修改被退回了）
