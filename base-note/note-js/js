@@ -1,0 +1,73 @@
+1.NaN
+    (1)相异 => 包括它自己。
+    (2)判断 => isNaN(NaN)。
+
+2.浮点数
+    (1)运算误差，因为计算机无法精确表示无限循环小数。
+    (2)绝对值 => 比较。
+
+3.变量
+    (1)没有var => 全局变量。
+    *[ES6](2)限制未var就使用变量 => js第一行使用：'use strict'。
+
+4.字符串
+    (1)ASCII字符可以以\x##形式的十六进制表示，例如：'\x41' <=> 'A'。
+    (2)Unicode字符'可以用\u####表示，例如：\u4e2d\u6587' <=>  '中文'。
+    (3)多行字符可用反单引号括起：`(键盘上'~'同一个键)。
+    (4)字符串是不可变的，如果对字符串的某个索引赋值，无错，也无效果。
+
+5.Array
+    (1)直接给Array的length赋一个新的值会导致Array大小的变化，截取或新增undefined
+    (2)slice(start,end)：包括开始索引，不包括结束索引。无参数则相当于copy。
+    (3)push([])：末尾添加元素；unshift([])：首部添加元素。
+    (4)pop()：移除末尾元素；shift()：移除首部元素。
+    (5)splice(begin,count,repace1,2....)：从指定的索引开始删除若干元素，然后再从该位置添加若干元素。返回删除的元素数组。
+    (6)concat(arrry)方法把当前的Array和另一个Array连接起来，并返回一个新的Array。
+    (7)join(string)方法是一个非常实用的方法，它把当前Array的每个元素都用指定的字符串连接起来
+
+6.对象
+    (1)属性名包含特殊字符，就必须用''括起来。访问这个属性也无法使用.操作符，必须用['xxx']来访问。
+    (2)访问不存在的属性不报错，而是返回undefined。
+    (3)in判断一个属性存在，这个属性有可能是通过继承得到的。区别自身可使用hasOwnProperty(property)
+
+7.条件判断
+    (1)JS把null、undefined、0、NaN和空字符串''视为false，其他值一概视为true。
+
+8.循环
+    (1)for(var ... in array|obj)对Array的循环得到的是String而不是Number。(数组得到的是索引，对象得到的是属性名)
+    (2)*[ES6]for(var ... of iterable)
+    (3)*[ES5.1]forEach(function)
+        ①Array - function (element, index, array){}
+        ②Set - function (element, set){}
+        ③Map - function (value, key, map){}
+
+9.函数
+    (1)无return，返回undefined。
+    (2)function foo(a, b, ...rest)，‘...rest’用于接收多余的参数。
+    (3)return后面换行要使用{}，否则自动在return后面添加分号。
+    (4)高阶函数Array
+        ①Array.map(function(){})：将每一个元素执行函数调用。如：pow,String
+        ②Array.reduce(x,y)：接收两个参数，把结果继续和序列的下一个元素做累积计算。
+        ③Array.filter(function(){return true})：保留返回true的元素。
+        ④Array.sort()：默认转化为String根据ASCII再排序，可接收自定义function(x,y){return -1;0;1}。
+    (5)函数变量，后面加()表示函数调用。
+    (6)闭包：函数的返回值是函数。相关参数和变量都保存在返回的函数中。
+
+10.标准对象
+    (1)number对象调用toString()，需使用两个点或者小括号：1..toString()；(1).toString()。
+    (2)RegExp
+        ①^表示行的开头，^\d表示必须以数字开头。
+        ②$表示行的结束，\d$表示必须以数字结束。
+        ③创建正则表达式：
+            a：直接通过/正则表达式/写出来：var re1 = /ABC\-001/
+            b：通过new RegExp('正则表达式')创建一个RegExp对象
+    (3)JSON
+        ①JSON还定死了字符集必须是UTF-8
+        ②JSON的字符串规定必须用双引号""，Object的键也必须用双引号""。
+        ③序列化：
+            a：JSON.stringify(object)；对象序列化成JSON格式的字符串
+            b：JSON.stringify(xiaoming, null, '  ');
+                注：参数1：对象；参数2：Array指定需输出对象的属性key，或function(key, value)先进行处理；参数3：缩进
+        ④反序列化：
+            a：obj = JSON.parse(json)
+            b：obj = JSON.parse(json,function (key, value){})：function处理后的键值对。
