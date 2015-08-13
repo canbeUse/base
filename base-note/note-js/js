@@ -71,3 +71,24 @@
         ④反序列化：
             a：obj = JSON.parse(json)
             b：obj = JSON.parse(json,function (key, value){})：function处理后的键值对。
+
+11.浏览器
+    (1)浏览器对象
+        ①window：浏览器窗口显示网页的净宽高innerWidth，innerHeight；浏览器窗口的整个宽高outerWidth，outerHeight。
+        ②navigator：浏览器的信息。浏览器名称，版本，语言，操作系统类型，
+        ③screen：屏幕的信息。屏幕的宽度，高度。
+        ④location：
+            location.reload(); //重新加载当前页面
+            location.assign('/discuss');//设置跳转url的path
+            location.protocol; // 'http'
+            location.host; // 'www.example.com'
+            location.port; // '8080'
+            location.pathname; // '/path/index.html'
+            location.search; // '?a=1&b=2'
+            location.hash; // 'TOP'
+        ⑤docunment：cookie对象一般被服务器设置的httpOnly禁止js读取。
+        ⑥history：不建议使用。
+    (2)操作表单
+        ①对于单选框和复选框，value属性返回的永远是HTML预设的值，而我们需要获得的实际是用户是否“勾上了”选项，所以应该用checked判断。
+        ②安全考虑，提交表单时不传输明文口令，而是口令的MD5。toMD5(pwd.value);
+        ③没有name属性的<input>的数据不会被提交。
