@@ -21,6 +21,7 @@ public class TestMain {
         for(String s: slist){
             System.out.println(s.length());
         }
+        slist.add("test git ");
     }
 }
 
