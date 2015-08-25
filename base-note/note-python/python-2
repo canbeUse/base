@@ -1,0 +1,42 @@
+1.高级特性
+    (1)切片：取list或tuple的部分元素
+        ①L[n:m]：取第n+1个元素至m-1个元素。
+        ②L[:]：前空表示首个，后空表示末尾。相当于复制一个list。
+        ③L[::m]：首个至末尾，每隔m个元素取一个。
+        ④L[-10:]：取最后10个元素。包含-10和-1。
+        ⑤也适用于字符串切片。
+        ⑥用循环需要这样取：
+             >>> r = []
+             >>> n = 3
+             >>> for i in range(n):
+             >>>    r.append(L[i])
+    (2)迭代
+        ①dict
+            for key in dict:
+            for key in dict.values():
+            for k,v in dict.items():
+        ②判断一个对象是否可迭代
+            isinstance(object, Iterable)
+        ③对list实现索引获取
+            >>> for i, value in enumerate(['A', 'B', 'C']):
+            >>>    print(i, value)
+    (3)列表生成式：前面可进行表达式运算等。
+        ①list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] <= list(range(1, 11))
+        ②[1x1, 2x2, 3x3, ..., 10x10]
+            a：
+                >>> L = []
+                >>> for x in range(1, 11):
+                >>>    L.append(x * x)
+            b：
+                 四则运算：[x * x for x in range(1, 11)] => [1x1, 2x2, 3x3, ..., 10x10]
+                 加if判断：[x * x for x in range(1, 11) if x % 2 == 0] => [4, 16, 36, 64, 100]
+                 加双循环：[m + n for m in 'ABC' for n in 'XYZ'] => ['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+    (4)生成器generator
+        ①列表生成式的[]改成()，就创建了一个generator。
+        ②next()获得generator的下一个返回值，没有元素时会抛出StopIteration的错误；不过一般使用for循环，不抛错误。
+        ③generator在执行过程中，遇到yield就中断，下次又继续执行。
+        ④返回值包含在StopIteration的value中。
+    (5)迭代器
+        ①
+        ②
+        ③
