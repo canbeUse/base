@@ -34,9 +34,13 @@
     (4)生成器generator
         ①列表生成式的[]改成()，就创建了一个generator。
         ②next()获得generator的下一个返回值，没有元素时会抛出StopIteration的错误；不过一般使用for循环，不抛错误。
-        ③generator在执行过程中，遇到yield就中断，下次又继续执行。
+        ③带yield的generator function，generator在执行过程中，遇到yield就中断，下次又继续执行。
         ④返回值包含在StopIteration的value中。
     (5)迭代器
-        ①
-        ②
-        ③
+        ①生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。
+        ② 把list、dict、str等Iterable变成Iterator可以使用iter(object)函数。
+        ③凡是可作用于for循环的对象都是Iterable类型。
+        ④凡是可作用于next()函数的对象都是Iterator类型。
+        ⑤Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，
+           直到没有数据时抛出StopIteration错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，
+           只能不断通过next()函数实现按需计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。
