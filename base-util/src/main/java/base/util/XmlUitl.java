@@ -7,7 +7,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 /**
- * Created by working on 2015-08-05.
+ * Created by base on 2015-08-05.
  */
 public class XmlUitl {
     public static <T> String objectToXml(T t, Class<T> clazz) throws JAXBException {

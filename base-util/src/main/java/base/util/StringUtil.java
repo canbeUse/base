@@ -1,7 +1,7 @@
 package base.util;
 
 /**
- * Created by working on 2015/7/2.
+ * Created by base on 2015/7/2.
  */
 public class StringUtil {
 

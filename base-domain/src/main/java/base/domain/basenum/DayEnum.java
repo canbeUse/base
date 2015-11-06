@@ -1,7 +1,7 @@
 package base.domain.basenum;
 
 /**
- * Created by working on 2015-07-23.
+ * Created by base on 2015-07-23.
  */
 public enum DayEnum {
     Monday(1,"星期一"),

@@ -11,7 +11,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 /**
- * Created by working on 2015-08-05.
+ * Created by base on 2015-08-05.
  */
 public class HttpClientUtil {
     private static CloseableHttpClient httpClient;

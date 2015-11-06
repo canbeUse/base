@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /**
- * Created by working on 2015/7/2.
+ * Created by base on 2015/7/2.
  */
 public class SerializeUtil {
 
