@@ -14,14 +14,11 @@ public class StringUtil {
      * @param value 任意字符串
      * @return 半角字符串
      */
-    public static String toDBC(String value)
-    {
+    public static String toDBC(String value) {
         char[] c = value.toCharArray();
-        for (int i = 0; i < c.length; i++)
-        {
+        for (int i = 0; i < c.length; i++) {
             //12288：全角空格；32：半角空格
-            if (c[i] == 12288)
-            {
+            if (c[i] == 12288) {
                 c[i] = (char) 32;
                 continue;
             }

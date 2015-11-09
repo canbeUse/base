@@ -31,7 +31,9 @@
         git remote rename oldName newName
     - 删除仓库
         git remote rm respoName
-     - 删除远程分支
+    - 查看远程分支
+        git br -r
+    - 删除远程分支
         git push respoName:branchName
 
 7.分支查看

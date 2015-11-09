@@ -1,5 +1,6 @@
 package base.test;
 
+import base.util.JsonUtil;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
