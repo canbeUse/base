@@ -1,6 +1,6 @@
 package base.test;
 
-import base.log.LogHelper;
+import base.log4j.Log4jHelper;
 import org.apache.log4j.Logger;
 
 /**
@@ -9,6 +9,6 @@ import org.apache.log4j.Logger;
 public class LogTest {
     public static void main(String[] args){
         Logger logger = Logger.getLogger(LogTest.class);
-        new LogHelper(logger);
+        new Log4jHelper(logger);
     }
 }
