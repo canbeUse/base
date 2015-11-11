@@ -40,7 +40,6 @@ public class StringTest {
     public static void main(String [] args) {
 
         String str = "是你的吗";
-
         str2char(str);
 //        System.out.println(char2ASCII(str));
 //        System.out.println(str.length());

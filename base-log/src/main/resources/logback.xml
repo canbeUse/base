@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- debug:启动时输出配置加载信息; scan:默认自动扫描配置文件是否有修改; scanPeriod:默认为每分钟-->
+<configuration debug="true" scan="true" scanPeriod="30 seconds">
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}][%-5level][%logger{0}:%L] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>base-log/logback/log_debug.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}][%-5level][%logger:%L] - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>base-log/base.log.%d{yyyy-MM-dd}</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="base.test" level="INFO" >
+        <appender-ref ref="file"/>
+     </logger>
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
