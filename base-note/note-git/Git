@@ -35,6 +35,9 @@
         git br -r
     - 删除远程分支
         git push respoName:branchName
+        git push origin --delete 远程分支名
+             #删除远程仓库中的 develop 分支
+             $ git push origin --delete develop
 
 7.分支查看
     - 查看已与当前分支合并过的分支
