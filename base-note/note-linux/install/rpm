@@ -1,0 +1,80 @@
+1.rpm包在系统光盘中
+2.rpm包命名规则
+    如：httpd-2.2.15-15.el6.centos.1.i686.rpm
+        -httpd：软件包名
+        -2.2.15：软件版本
+        -15：软件发布次数
+        -el6.centos：适合的linux平台
+        -i686：适合的硬件平台
+        -rpm：rpm包扩展名
+3.rpm包依赖性
+    树形依赖
+    环形依赖
+    模块依赖：可查询www.rpmfind.net
+4.包名和包全名
+    没有安装的包使用路径+包全名
+    已安装的包可使用包名,默认搜索/var/lib/rpm
+5.rpm安装与卸载
+    rpm -ivh 包全名
+        -i：install，安装
+        -v：verbose，显示详细信息
+        -h：hash，显示进度
+        - --nodeps：不检查依赖性
+    rpm -e
+        -e：erase，卸载
+        - --nodeps：不检查依赖性
+6.rpm升级
+    rpm -Uvh 包全名
+        -U：upgarde，升级。(若系统未安装该包可作安装rpm包使用)
+7.查询是否已安装
+    rpm -q 包名    #查询包是否安装
+        -q：query，查询
+    rpm -qa    #查询所有已经安装的rpm包，可使用管道符过滤
+        -a：all，所有
+8.查询软件包详细信息
+    rpm -qi 包名
+        -i：information，查询软件信息
+        -p：package，查询未安装包信息
+9.查询包中文件安装位置
+    rpm -ql 包名
+        -l：list，列表
+        -p：package，查询未安装包信息
+10.查询系统文件属于哪个rpm包
+    rpm -qf 系统文件名    #系统内创建的文件无包名
+        -f：file，系统文件
+11.查询软件包的依赖性
+    rpm -qR 包名
+        -R：requires，依赖性
+        -p：package，未安装包
+12.rpm包校验
+    rpm -V 已安装的包名
+        -V：verity，校验rpm包内文件
+    输出8个信息内容：
+        -S 文件大小是否改变
+        -M 文件类型或权限是否被改变
+        -5 文件的MD5校验和是否被改变（亦是文件内容是否被改变）
+        -D 设备的主从代码是否被改变
+        -L 文件的路径是否被改变
+        -U 文件的所有者是否被改变
+        -G 文件的所属组是否被改变
+        -T 文件的修改时间是否被改变
+    文件类型：
+        -c：配置文件；config file
+        -d：普通文档；documentation
+        -g：不该存在的文件；ghost file
+        -L：授权文件；license file
+        -r：描述文件；read me
+13.rpm包中文件提取    #如系统文件丢失可重新提取
+    rpm2cpio 包全名 | cpio -idv .文件绝对路径
+        -rpm2cpio：将rpm包转换为cpio格式的命令
+        -cpio：标准工具，用于创建档案文件和从档案文件中提取文件    #cpio 选项 < [文件|设备]
+            -i：copy-in模式，还原
+            -d：还原时自动创建新建目录
+            -v：显示还原过程
+
+14.rpm包默认安装位置
+    /etc/：配置文件安装目录
+    /usr/bin/：可执行命令安装目录
+    /usr/lib/：程序所使用的函数库保存的位置
+    /usr/share/doc/：基本的软件使用手册保存位置
+    /usr/share/man/：帮助文件保存的位置

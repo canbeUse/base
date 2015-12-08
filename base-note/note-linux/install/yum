@@ -1,0 +1,24 @@
+1.建立光盘yum源
+    #建立挂载点
+    mkdir /mnt/cdrom
+    #挂载光盘
+    mount /dev/cdrom /mnt/cdrom
+    #yum源默认目录位置,网络yum源
+    cd /etc/yum.repos.d
+        -CentOS-Base.repo：yum源文件
+        -CentOS-Meida.repo：光盘yum源
+    #使网络yum源失效→修改yum源文件名称即可
+    mv CentOS-Base.repo CentOS-Base.repo.bak
+    #使光盘yum源生效
+    vim CentOS-Media.repo
+        #地址修改为光盘挂载位置
+        #注释不存在的地址位置
+        #enable修改为1，使文件生效
+
+2.查询
+    yum list #查询所有可用软件包列表
+    yum search 关键字 #搜索服务器上所有和关键字相关的包
+3.
+4.
+5.
+6.
