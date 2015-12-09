@@ -1,0 +1,30 @@
+1安装gcc
+yum -y install gcc
+
+2.源码安装常规保存位置
+/usr/local/src/：源代码
+/usr/local/：软件安装位置
+
+3. ./configure 软件配置与检查
+    定义需要的功能选项
+    检测环境要求
+    把选定的功能选项和环境信息写入makefile文件
+    #编译
+    make
+    #编译安装
+    make install
+    #清除编译信息
+    make clean
+    #卸载
+    直接删除安装目录即可无任何残留
+
+4.准备工作
+    #关闭相同服务
+    #yum源可用
+    #关闭SELinux
+    /ect/selinux/config
+    disabled → 重启
+    #关闭防火墙
+    setup
+
+5.LNMP

@@ -1,0 +1,32 @@
+#新增用户信息
+    useradd -xxx uname    #新建uname用户
+        -g gname uname    #指定所属组名
+        -G gname1,gname2...    #指定附属组名，用户使用newgrp命令可切换到附属组
+        -d /home/hname    #指定家目录
+        -c remark uname    #指定备注信息
+
+#修改用户信息
+    usermod -xxx uname
+        -c    #修改备注信息
+        -l newname   #修改用户名
+        -d    #修改家目录
+        -g    #修改所属组
+    passwd uname    #修改用户密码
+    finger uname    #显示用户基本信息，centos6.7测试无效
+    chfn uname    #修改用户基本信息change finger
+
+#删除用户信息
+    userdel -xxx uname    #删除uname用户
+        -r 删除家目录
+
+#不允许普通用户登录
+    touch /etc/nologin #有此文件即可，内容无关
+
+#锁定用户
+    passwd -l uname    #使用户uname密码失效，即锁定用户
+    passwd -u uname    #使用户uname密码生效，即解锁
+    passwd -d uname    #使用户uname密码置空，可无密码登录
+
+#输出用户信息
+    id uname
+    groups uname    #显示用户所在所有组

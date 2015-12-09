@@ -1,0 +1,21 @@
+#添加组信息
+groupadd
+    -gname    #新建组gname
+    -g gid gname    #新建组gname，组id为gid
+
+#修改组信息
+groupmod
+    -n newname oldname    #修改组名
+    -g newgid gname    #修改组id
+
+#删除组信息
+groupdel
+    -gname    #删除组gname
+
+#操作用户
+gpasswd -xxx uname gname
+    -a 添加用户到分组
+    -d 从分组中删除用户
+
+#修改组密码
+gpasswd gname

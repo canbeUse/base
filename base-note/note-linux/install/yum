@@ -15,10 +15,30 @@
         #注释不存在的地址位置
         #enable修改为1，使文件生效
 
-2.查询
+2.常用yum命令
+    (1)查询
     yum list #查询所有可用软件包列表
     yum search 关键字 #搜索服务器上所有和关键字相关的包
-3.
-4.
-5.
-6.
+    (2)安装
+    yum -y install 包名    #yum -y install gcc
+        -y：自动回答安装过程的yes
+        -install：安装
+     (3)升级
+     yum -y update 包名
+        -update：升级
+     (4)卸载    #服务器使用最小化安装，使用才安装，尽量不卸载
+     yum -y remove 包名
+        -remove：卸载
+
+3.yum软件组管理命令
+    #列出所有可用的软件组列表
+    yum grouplist
+    #安装指定的软件组，组名可以由上查询
+    yum groupinstall 软件组名
+    #卸载指定的软件组
+    yum groupremove 软件组名
+
+4.rpm安装方式的软件启动
+        可使用service httpd start
+        #/etc/rc.d/init.d 下的服务可用service启动
+        /etc/rc.d/init.d/httpd start
