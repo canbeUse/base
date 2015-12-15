@@ -1,0 +1,29 @@
+1.安装gcc
+    (1)$ yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel    #git依赖库
+    (2)$ yum -y install gcc
+
+2.安装git并部署
+   (1)安装：http://git-scm.com/downloads    #下载git,解压编译安装
+        $ tar -zxvf git-x.x.x.tar.gz -C /data/opt
+        $ cd /data/opt/git-x.x.x
+        $ ./configure
+        $ make
+        $ make install
+    (2)部署：
+        $ useradd git
+        $ passwd git
+        $ vim /etc/passwd    #默认git-shell安装路径：/usr/local/bin/git-shell，禁止shell登录，只允许git的push和pull等操作
+        $ cd /
+        $ ln -s /home/git git    #建立软连接
+        #建立裸仓库
+        $ su git    #切换git用户
+        $ cd    #进入家目录
+        $ mkdir base.git
+        $ cd base.git
+        $ git --bare init
+        $ cd /
+        #或已有仓库分离出裸仓库上传到服务器
+        $ git clone --bare project project.git
+
+3.clone项目
+    $ git clone git@host:/git/base.git
