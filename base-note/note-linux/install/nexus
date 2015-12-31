@@ -1,0 +1,32 @@
+1.下载Nexus：(http://nexus.sonatype.org/downloads/)
+	或：wget https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-latest-bundle.tar.gz
+
+	(1)Bundle方式：包含Jetty容器的Bundle包(默认端口：8081，修改：/conf/nexus.properties→"application-port")
+	    #下载解压软链接
+	    $ tar zxvf xxx.tar.gz -C /data/opt/soft
+	    $ ln -s /data/opt/soft/xxx xxx
+	    #修改nexus所有者
+	    $ chown -R username nexus
+	    $ chown -R username sonatype-work
+        #修改nexus运行账户
+        $vim /data/opt/soft/xxx/bin/nexus
+        	#RUN_AS_USER → RUN_AS_USER = username
+        #nexus操作命令
+		$ ./nexus start | stop | status | restart
+
+	(2)war方式：
+		(1)war to tomcat/webapps/
+		(2)start tomcat
+		(3)http://ip:8080/nexus/
+
+2.启动后访问
+    #链接
+    host:8081/nexus/
+    #默认后台账户
+    admin/admin123
+
+error：
+(1)Failed to start Nexus OSS
+解决：修改nexus所有者
+(2)WARNING - NOT RECOMMENDED TO RUN AS ROOT
+解决：修改nexus运行账户

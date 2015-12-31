@@ -1,0 +1,7 @@
+#配置环境变量
+/etc/profile - concat
+    export M2_HOME=/data/opt/soft/apache-maven
+    export JAVA_HOME=/data/opt/soft/jdk
+    export PATH=$M2_HOME/bin:$PATH
+    export PATH=$JAVA_HOME/bin:$PATH
+    export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar

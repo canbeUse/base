@@ -1,0 +1,4 @@
+java -version               #查看java版本
+rpm qa|grep java        #查询java包
+yum -y remove xxx     #移除查询出来的包
+
